@@ -4,18 +4,20 @@ The Ruby cheers exercise (see: elizabrock/cheers), this time 3 weeks into learni
 ## Instructions
 (What is the class supposed to do)
 
+* `chmod +x fileName`
+
 ## Specifications, for non-interactive version
 (How does the program work)
 
 ### Help Usage
 
-Run the program by running './cheers.rb'
+Run the program by running './cheers'
 
 The program will print out:
 
 > I'd cheer for you, if only I knew who you were :(
 
-> Try again with './cheers.rb [Name] [mm/dd Birthday]'
+> Try again with './cheers [Name] [mm/dd Birthday]'
 
 ### Regular Usage
 
@@ -58,7 +60,7 @@ The program outputs the number of days until the user's birthday
 ## Specifications, for interactive version
 (How does the program work)
 
-Start the program by running (./cheers.rb)
+Start the program by running (./cheers)
 
 The program should ask:
 
