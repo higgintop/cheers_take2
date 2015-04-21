@@ -18,12 +18,16 @@ The user types in their name, for example:
 The program outputs a cheer in the following format:
 
 > Give me an... A
+
 > Give me a... B
+
 > Give me a... B
+
 > Give me a... Y
+
 > Abby's just GRAND!
 
-* Follow the proper grammatical for 'a' and 'an'
+* Follow the proper grammatical rules for 'a' and 'an'
 * Ignore all special characters (i.e. non-word characters) when printing the cheer (Give me a ...)
 * Don't ignore special characters for the last outputted line (__'s just GRAND!)
 * Print the user's name out as it was originally input for the "just GRAND" line 
