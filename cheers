@@ -2,7 +2,7 @@
 
 args = ARGV
 
-if (args.any? == false) 
-	# no arguments passed in
-	puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
+if (args.any? == false)
+  # no arguments passed in
+  puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
 end
