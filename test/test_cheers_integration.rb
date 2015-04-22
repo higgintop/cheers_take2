@@ -1,4 +1,5 @@
-require 'minitest/autorun'
+require_relative 'helper'
+
 
 class TestCheersIntegration < Minitest::Test
 
@@ -6,7 +7,6 @@ class TestCheersIntegration < Minitest::Test
   #  0 args tests
   #############################################
   def test_help_message
-    skip
     output = `./cheers`
     expected = <<EOS
 I'd cheer for you, if only I knew who you were :(
@@ -92,7 +92,7 @@ EOS
   end
 
   def test_name_valid_and_birthday_invalid_b
-    output = `./cheers Abby 08/25/15`
+    output = `./cheers Abby 08/25/99`
     expected = <<EOS
 Give me an... A!
 Give me a... B!
