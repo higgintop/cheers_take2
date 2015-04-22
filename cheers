@@ -1,8 +1,59 @@
 #!/usr/bin/env ruby
 
+require 'date'
+
 args = ARGV
 
-if (args.any? == false)
-    # no arguments passed in
-    puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
+# method to print help message
+def print_help
+  puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
 end
+
+# set the args
+name = args[0]
+birthday = args[1]
+
+# Helper string for grammer
+an_letters = "AEFHILMNORSX"
+
+# first, if name is nil or empty string,
+#  we got nothing so print help message
+if name.nil? or name.empty?
+  print_help
+else
+  nameModified = name.gsub(/[\d\W]/, "")
+  if nameModified.empty?
+    print_help
+  else
+    # cheer for nameModified
+    nameModified.each_char do |letter|
+      if an_letters.include?(letter.upcase)
+        puts "Give me an... " +  letter.upcase + "!"
+      else
+        puts "Give me a... " + letter.upcase + "!"
+      end
+    end
+    puts name + "\'s just GRAND!"
+
+    # parse birthday and give user msg as to how many more days till bday
+    if birthday.nil? or birthday.empty?
+      puts "I would wish you a happy birthday, if I knew when that was!"
+    else
+      # 1. need to get current day (TODAY)
+      todayYDay = Time.new.yday
+      # 2. need user's yday conversion
+      begin
+        userYDay = Date.strptime(birthday, "%m/%d").yday
+        if userYDay  >= todayYDay
+          puts "Awesome! Your birthday is in " + (userYDay-todayYDay).to_s + " days! Happy Birthday in advance!"
+        else
+          puts "Awesome! Your birthday is in " + ((365-todayYDay) + userYDay).to_s + " days! Happy Birthday in advance!"
+        end
+      rescue
+        puts "I couldn't understand that. Could you give that to me in the mm/dd format next time?"
+      end
+
+    end
+  end
+end
+
