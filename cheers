@@ -9,16 +9,21 @@ args = ARGV
 name = args[0]
 birthday = args[1]
 
+
 # Helper string for grammer
 $an_letters = "AEFHILMNORSX"
 
 
+############################################
 # method to print help message
+############################################
 def print_help
   puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
 end
 
+###########################################
 # method to cheer
+###########################################
 def cheer (name, nameModified)
   nameModified.each_char do |letter|
     if $an_letters.include?(letter.upcase)
@@ -30,7 +35,9 @@ def cheer (name, nameModified)
   puts name + "\'s just GRAND!"
 end
 
+#############################################
 # method to find birthday countdown
+#############################################
 def birthday_countdown(birthday)
   # 1. need to get current day (TODAY)
   todayYDay = Time.new.yday
@@ -47,8 +54,9 @@ def birthday_countdown(birthday)
   end
 end
 
-
+############################################
 # main logic
+############################################
 if name.nil? or name.empty?
   print_help
 else
