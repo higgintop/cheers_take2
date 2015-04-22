@@ -4,17 +4,32 @@ require 'date'
 
 args = ARGV
 
-# method to print help message
-def print_help
-  puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
-end
 
 # set the args
 name = args[0]
 birthday = args[1]
 
 # Helper string for grammer
-an_letters = "AEFHILMNORSX"
+$an_letters = "AEFHILMNORSX"
+
+
+# method to print help message
+def print_help
+  puts "I'd cheer for you, if only I knew who you were :(\nTry again with `./cheers [Name] [mm/dd Birthday]`"
+end
+
+# method to cheer
+def cheer (name, nameModified)
+  nameModified.each_char do |letter|
+    if $an_letters.include?(letter.upcase)
+      puts "Give me an... " +  letter.upcase + "!"
+    else
+      puts "Give me a... " + letter.upcase + "!"
+    end
+  end
+  puts name + "\'s just GRAND!"
+end
+
 
 # first, if name is nil or empty string,
 #  we got nothing so print help message
@@ -26,14 +41,7 @@ else
     print_help
   else
     # cheer for nameModified
-    nameModified.each_char do |letter|
-      if an_letters.include?(letter.upcase)
-        puts "Give me an... " +  letter.upcase + "!"
-      else
-        puts "Give me a... " + letter.upcase + "!"
-      end
-    end
-    puts name + "\'s just GRAND!"
+    cheer(name, nameModified)
 
     # parse birthday and give user msg as to how many more days till bday
     if birthday.nil? or birthday.empty?
