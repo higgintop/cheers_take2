@@ -19,7 +19,7 @@ EOS
   #############################################
   #  1 arg only tests
   #############################################
-  def test_only_name_argument_and_name_valid
+  def test_only_name_argument_and_name_valid_a
     output = `./cheers Abby`
     expected = <<EOS
 Give me an... A!
@@ -31,6 +31,43 @@ I would wish you a happy birthday, if I knew when that was!
 EOS
     assert_equal expected, output
   end
+
+
+  def test_only_name_argument_and_name_valid_b
+    output = `./cheers Mary-Jane`
+    expected = <<EOS
+Give me an... M!
+Give me an... A!
+Give me an... R!
+Give me a... Y!
+Give me a... J!
+Give me an... A!
+Give me an... N!
+Give me an... E!
+Mary-Jane's just GRAND!
+I would wish you a happy birthday, if I knew when that was!
+EOS
+    assert_equal expected, output
+  end
+
+
+    def test_only_name_argument_and_name_valid_c
+    output = `./cheers "Mary Jane"`
+    expected = <<EOS
+Give me an... M!
+Give me an... A!
+Give me an... R!
+Give me a... Y!
+Give me a... J!
+Give me an... A!
+Give me an... N!
+Give me an... E!
+Mary Jane's just GRAND!
+I would wish you a happy birthday, if I knew when that was!
+EOS
+    assert_equal expected, output
+  end
+
 
   def test_only_non_word_argument_a
     output = `./cheers *!#123`
